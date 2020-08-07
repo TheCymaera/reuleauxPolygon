@@ -1,0 +1,74 @@
+/**
+ * Fancy Checkbox
+ * ==========================================
+ * Can be used for commerical or non-commerical purposes.
+ * DO NOT RESELL.
+ * Attribution is appreciated but not due.
+ * ==========================================
+ * @author Cymaera
+ */
+
+.fancy-checkbox {
+	position: relative;
+	cursor: pointer;
+	box-sizing: border-box;
+
+	user-select: none;
+	-moz-user-select: none;
+}
+  
+/* Hide input */
+.fancy-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Center text vertically and give space for checkbox*/
+.fancy-checkbox span {
+	position: relative;
+
+	display: inline-flex;
+	align-items: center;
+	height: var(--height,1.3em);
+
+	padding-left: calc(var(--height,1.3em) + 0.5em);
+}
+
+/* Box */
+.fancy-checkbox span::before {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	height: var(--height,1.3em);
+	width: var(--height,1.3em);
+	background-color: #222;
+}
+.fancy-checkbox:hover span::before {
+	background-color: #333;
+}
+
+/* Tick */
+.fancy-checkbox span::after {
+	content: "";
+	position: absolute;
+
+	display: block;
+	left: calc(var(--height,1.3em) * 0.35);
+	top: calc(var(--height,1.3em) * 0.25);
+	
+	width: calc(var(--height,1.3em) * 0.16);
+	height: calc(var(--height,1.3em) * 0.32);
+
+	border: solid white calc(var(--height,1.3em) * 0.12);
+	border-left-width: 0;
+	border-top-width: 0;
+	transform: rotate(45deg);
+}
+
+/* Hide tick if not checked */
+.fancy-checkbox input:not(:checked) ~ span::after {
+	display: none;
+}

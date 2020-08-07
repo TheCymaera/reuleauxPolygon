@@ -1,0 +1,101 @@
+/**
+ * Theme
+ * ==========================================
+ * Can be used for commerical or non-commerical purposes.
+ * DO NOT RESELL.
+ * Attribution is appreciated but not due.
+ * ==========================================
+ * @author Cymaera
+ */
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #6a6a6a;
+}
+
+/* Headers */
+h1,h2,h3,h4,h5,h6 {
+	margin: 0.3em 0;
+}
+
+a {
+	color: #0cc;
+}
+
+
+/* Inherit text */
+input, button, select {
+	line-height: inherit;
+	font-size: inherit;
+	color: inherit;
+	text-transform: inherit;
+	outline: none;
+}
+
+/* Reset system styles */
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+	appearance: none;
+}
+
+/* Input and select styles */
+select,
+input {
+	background: white;
+	border: 1px solid #ccc;
+	padding: 0.2em;
+	box-sizing: border-box;
+	transition: border-color 0.1s ease, box-shadow 0.1s ease;
+}
+select:hover,
+input:hover {
+	border-color: #aaa;
+}
+select:focus,
+input:focus {
+	border-color: #0cc;
+}
+input:focus {
+	box-shadow: inset 0 0 .1em #0cc;
+}
+
+/* Button styles */
+button {
+	padding: 0.2em 0.4em;
+	border: none;
+	box-sizing: border-box;
+
+	background-color: #222;
+	border: 1px solid #444;
+	border-radius: 0.3em;
+	color: white;
+	transition: background-color 0.1s ease;
+}
+button:hover:not(:active) {
+	background-color: #333;
+}
+
+
+/* CIRCLE BUTTON */
+.circleButton {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    
+    width: 1em;
+	height: 1em;
+	
+	user-select: none;
+	cursor: pointer;
+}
+.circleButton:hover {
+	background-color: #333;
+}
+.circleButton * {
+	font-size: 50%;
+}
