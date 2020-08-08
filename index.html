@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="./main.css" type="text/css" />
 	<link rel="stylesheet" href="./deps/fancy-checkbox.css" type="text/css" />
 	<link rel="stylesheet" href="./deps/theme.css" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
 <body>
@@ -40,7 +41,7 @@
 			</section>
 			<h3>Links</h3>
 			<section>
-				<a href="https://github.com/TheCymaera/reuleauxPolygon">Code on GitHub</a>
+				<a href="/">Code on GitHub</a>
 			</section>
 		</div>
 	</section>
@@ -50,8 +51,13 @@
 	<main>
 		<canvas></canvas>
 		<section>
-			<div class="circleButton" id="infoButton" title="Info"><span></span></div>
-			<div class="circleButton" id="downloadButton" title="Download"><span>&#129095;</span></div>
+			<button class="circleButton" id="infoButton" title="Info">
+				<i class="fa fa-info"></i>
+				<i class="fa fa-times"></i>
+			</button>
+			<button class="circleButton" id="downloadButton" title="Download">
+				<i class="fa fa-download"></i>
+			</button>
 		</section>
 	</main>
 

@@ -74,28 +74,3 @@ button {
 button:hover:not(:active) {
 	background-color: #333;
 }
-
-
-/* CIRCLE BUTTON */
-.circleButton {
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    
-    display: flex;
-	justify-content: center;
-	align-items: center;
-    
-    width: 1em;
-	height: 1em;
-	
-	user-select: none;
-	cursor: pointer;
-}
-.circleButton:hover {
-	background-color: #333;
-}
-.circleButton * {
-	font-size: 50%;
-}

@@ -60,11 +60,30 @@ main section {
 	right: 0;
 	top: 0;
 }
-main section .circleButton {
-	font-size: 40px;
-	margin: 10px;
-}
 
+/* CIRCLE BUTTONS */
+main section button {
+	font-size: 15px;
+	margin: 10px;
+	
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    
+    width: 2.5em;
+	height: 2.5em;
+	
+	user-select: none;
+	cursor: pointer;
+}
+main section button:hover {
+	background-color: #333;
+}
 
 
 /* ASIDE */
@@ -120,19 +139,12 @@ aside section {
 #infoButton {
 	position: relative;
 	z-index: 2;
-
-	text-transform: none;
-	font-weight: bold;
 }
-#infoButton *::before {
-	font-style: italic;
-	content:"i";
-	font-family: Georgia, serif;
+#infoButton[data-open="true"] > :first-child {
+	display: none;
 }
-#infoButton[data-open="true"] *::before {
-	font-style: normal;
-	content:"\2716\00FE0E";
-	font-family: "Courier New", Courier, monospace;
+#infoButton[data-open="false"] > :last-child {
+	display: none;
 }
 
 #info {
@@ -164,3 +176,5 @@ aside section {
 #info section {
 	margin-bottom: 30px;
 }
+
+
