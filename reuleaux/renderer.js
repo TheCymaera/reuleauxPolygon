@@ -100,8 +100,8 @@ export function outlinePolygon(points,closePath) {
 export function traceCircle(arc) {
 	const x = (arc.x - viewX) * resX;
 	const y = canvasHeight - ((arc.y - viewY) * resY);
-	const rx = resX * arc.radius;
-	const ry = resY * arc.radius;
+	const rx = Math.abs(resX * arc.radius);
+	const ry = Math.abs(resY * arc.radius);
 	ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
 }
 
@@ -123,8 +123,8 @@ export function outlineCircle(arc) {
 export function traceArc(arc) {
 	const x = (arc.x - viewX) * resX;
 	const y = canvasHeight - ((arc.y - viewY) * resY);
-	const rx = resX * arc.radius;
-	const ry = resY * arc.radius;
+	const rx = Math.abs(resX * arc.radius);
+	const ry = Math.abs(resY * arc.radius);
 	const a1 = arc.orientation;
 	const a2 = a1 + arc.angle;
 	ctx.ellipse(x,y,rx,ry,0,-a1,-a2,true);
