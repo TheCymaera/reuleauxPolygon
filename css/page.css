@@ -1,0 +1,12 @@
+#manualDrawContainer > * {
+	display: block;
+	margin-bottom: .5em;
+}
+
+:root[data-manual-draw] #autoDrawContainer {
+	display: none;
+}
+
+:root:not([data-manual-draw]) #manualDrawContainer {
+	display: none;
+}

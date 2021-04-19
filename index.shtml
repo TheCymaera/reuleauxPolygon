@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="hadron-theme-light" data-open-settings>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    
+	<!-- title & icons -->
+	<title>Reuleaux Polygon Generator</title>
+    <link rel="icon" href="/favicon.ico" type="image/png"/>
+	
+	<!-- info -->
+    <meta name="author" content="Morgan"/>
+    <meta name="description" content="Reuleaux Polygon Generator"/>
+    <meta name="keywords" content="Heledron, Cymaera, Reuleaux, Triangle, Polygon, Shapes, Figures, of, constant, width"/>
+	
+	<!-- sharing -->
+    <meta property="og:title" content="Reuleaux Polygon Generator"/>
+    <meta property="og:description" content="Reuleaux Polygon Generator"/>
+    <meta property="og:url"   content="https://heledron.com/tools/reuleaux-polygon-generator/"/>
+    <meta property="og:image" content="https://heledron.com/tools/reuleaux-polygon-generator/thumbnail.png"/>
+    <meta property="og:type"  content="website"/>
+
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="/shared/fontawesome-free-5.13.1-web/css/all.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/themes.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/elements.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/classes.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/fields.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/checkbox.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/action-buttons.css"/>
+	<link rel="stylesheet" type="text/css" href="/shared/hadron/css/pages/standard-page.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/canvasApp.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/page.css"/>
+
+	<!-- scripts -->
+	<script type="module" src="./javascript/main.js"></script>
+</head>
+<body class="fillWindow sp">
+	<header class="sp-header">
+		<a class="text" href="/">
+			<h1>Heledron</h1>
+		</a>
+	</header>
+
+	<canvas-app class="sp-body">
+		<aside>
+			<div>
+				<h2>Draw</h2>
+				
+				<label class="checkbox-field">
+					<input type="checkbox" class="checkbox" id="manualDraw"/> <span></span>
+					<span>Manual</span>
+				</label>
+
+				<div id="autoDrawContainer">
+					<label class="checkbox-field">
+						<input type="checkbox" class="checkbox" id="autoDrawPolygon" checked/> <span></span>
+						<span>Polygon</span>
+					</label>
+					
+					<label class="checkbox-field">
+						<input type="checkbox" class="checkbox" id="autoDrawCircles" checked/> <span></span>
+						<span>Circles</span>
+					</label>
+					
+					<label class="checkbox-field">
+						<input type="checkbox" class="checkbox" id="autoDrawArcs" checked/> <span></span>
+						<span>Arcs</span>
+					</label>
+				</div>
+				
+				<div id="manualDrawContainer">
+					<button id="drawPolygon">Polygon</button>
+					<button id="drawCircles">Circles</button>
+					<button id="drawArcs">Arcs</button>
+					<button id="clear">Clear</button>
+				</div>
+				<br/>
+
+				<h2>Geometry</h2>
+
+				<label class="number-field">
+					<span>Sides</span>
+					<input type="number" id="sides" value="3" step="2" />
+					<small>(Enter an odd number for a shape of constant width)</small>
+				</label>
+				
+				<label class="number-field">
+					<span>Circumradius</span>
+					<input type="number" id="circumradius" value="100" />
+				</label>
+				
+				<label class="number-field">
+					<span>Orientation <small>(Degrees)</small></span>
+					<input type="number" id="orientation" value="0" />
+				</label>
+
+				<label class="number-field">
+					<span>Extension</span>
+					<input type="number" id="extension" value="0" />
+				</label>
+				<br/>
+
+				<h2>Display</h2>
+
+				<label class="number-field">
+					<span>Resolution</span>
+					<input type="number" id="resolution" value="1000"/>
+				</label>
+				
+				<label class="number-field">
+					<span>Line Width</span>
+					<input type="number" id="lineWidth" value="10"/>
+				</label>
+
+				<label class="color-field">
+					<span>Polygon Color</span>
+					<input type="color" id="polygonColor" value="#000000">
+				</label>
+
+				<label class="color-field">
+					<span>Circle Color</span>
+					<input type="color" id="circleColor" value="#f00000">
+				</label>
+
+				<label class="color-field">
+					<span>Arc Color</span>
+					<input type="color" id="arcColor" value="#0000f0">
+				</label>
+
+				<label class="color-field">
+					<span>Extension Color</span>
+					<input type="color" id="extensionColor" value="#800080">
+				</label>
+
+				<label class="color-field">
+					<span>Extension Radii Color</span>
+					<input type="color" id="extensionRadiiColor" value="#008000">
+				</label>
+
+
+				<label class="select-field">
+					<span>Line cap</span>
+					<select id="lineCap">
+						<option value="butt">Butt</option>
+						<option value="round">Round</option>
+						<option value="square">Square</option>
+					</select>
+				</label>
+
+				<label class="select-field">
+					<span>Line join</span>
+					<select id="lineJoin">
+						<option value="round">Round</option>
+						<option value="bevel">Bevel</option>
+						<option value="miter">Miter</option>
+					</select>
+				</label>
+				<div style="height: 30%;"></div>
+			</div>
+		</aside>
+		<main>
+			<canvas width="1000" height="1000"></canvas>
+
+			<action-buttons data-x="right" data-y="top" data-direction="vertical">
+				<action-button id="toggleInfoDialogButton" title="Information">
+					<i class="fa fa-info" ></i>
+					<i class="fa fa-times" ></i>
+				</action-button>
+				<action-button id="downloadImageButton" title="Download Image">
+					<i class="fa fa-download"></i>
+				</action-button>
+				<action-button id="toggleSettingsButton" title="Toggle Settings">
+					<i class="fa fa-cog"></i>
+				</action-button>
+				<action-button id="shareButton" title="Share">
+					<i class="fa fa-share"></i>
+				</action-button>
+			</action-buttons>
+		</main>
+
+		<canvas-app-info-dialog>
+			<article>
+				<h2>Reuleaux Polygon Generator</h2>
+
+				<h3>License</h3>
+				<p>
+					All content generated using the tool can be used for commercial or non-commercial purposes. <wbr>
+					Attribution is appreciated but not due.
+				</p>
+				<h3>Links</h3>
+				<p>
+					<a href="https://github.com/TheCymaera/reuleauxPolygon">Code on GitHub</a>
+				</p>
+			</article>
+		</canvas-app-info-dialog>
+	</canvas-app>
+</body>
+</html>
